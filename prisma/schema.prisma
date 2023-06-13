@@ -1,0 +1,25 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // Specify the URL for connecting to the PostgreSQL database using the value from the DATABASE_URL environment variable.
+}
+
+model users {
+  id      Int @id @default(autoincrement()) // Define the 'users' table with an 'id' column as the primary key using auto-increment.
+  name    String // Define a 'name' column to store the user's name as a string.
+  email   String  @unique // Define an 'email' column to store the user's email as a string, with uniqueness constraint.
+  products products[] // Establish a one-to-many relationship with the 'products' table using the 'products' field.
+}
+
+model products {
+  id          Int @id @default(autoincrement()) // Define the 'products' table with an 'id' column as the primary key using auto-increment.
+  name        String // Define a 'name' column to store the product's name as a string.
+  price       Int // Define a 'price' column to store the product's price as an integer.
+  createdBy   users? @relation(fields: [userId], references: [id]) // Establish a many-to-one relationship with the 'users' table using the 'createdBy' field.
+  createdAt   DateTime @default(now()) // Define a 'createdAt' column to store the product's creation timestamp using the current date and time.
+  userId      Int // Define a 'userId' column to store the foreign key referencing the 'id' column in the 'users' table.
+}
