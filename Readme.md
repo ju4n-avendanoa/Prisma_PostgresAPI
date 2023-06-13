@@ -38,6 +38,8 @@ To get started with the Prisma_PostgresAPI, follow these steps:
    
 ## API Endpoints
 
+The API should now be up and running at `http://localhost:5005` by default. You can test it using an HTTP client tool like Postman.
+
 - `GET /api/users`: Get all users.
 - `GET /api/users/:id`: Get a specific user by ID.
 - `POST /api/users`: Create a new user.
@@ -46,4 +48,4 @@ To get started with the Prisma_PostgresAPI, follow these steps:
 
 ## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions, feel free to submit a pull request or open an issue in the [GitHub repository](https://github.com/ju4n-avendanoa/Prisma_PostgresAPI).
+Contributions are welcome! If you find any issues or have suggestions, feel free to submit a pull request or open an [issue](https://github.com/ju4n-avendanoa/Prisma_PostgresAPI/issues) in the GitHub repository.
